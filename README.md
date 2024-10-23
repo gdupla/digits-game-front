@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# digits-game-fronend
+Game based on Digits party but for 1 vs 1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### TODO List
+1. Break the local game and allow just to play with your board and just see the other being updated.
+2. Add login.
+3. Add colours and being more beautiful.
+4. Simplify the way to enter in a game.
 
 ## Available Scripts
 
