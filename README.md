@@ -1,4 +1,4 @@
-# digits-game-fronend
+# digits-game-frontend
 Game based on Digits party but for 1 vs 1
 
 ### TODO List
