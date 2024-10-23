@@ -8,7 +8,7 @@ const CreateGame = ({ onGameCreated }: { onGameCreated: (gameId: string) => void
     const handleCreateGame = async () => {
         try {
             const response = await createGame(playerOneId, playerTwoId);
-            onGameCreated(response.data.id.value);  // Pass the game ID back to parent component
+            onGameCreated(response.data.id);  // Pass the game ID back to parent component
         } catch (error) {
             console.error('Failed to create game:', error);
         }
