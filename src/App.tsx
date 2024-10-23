@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import CreateGame from './components/CreateGame';
+import GameBoard from './components/GameBoard';
 
-function App() {
+const App: React.FC = () => {
+  const [gameId, setGameId] = useState<string | null>(null);
+  const [playerId, setPlayerId] = useState<string>('');  // Assuming player 1 for now
+
+  const handleGameCreated = (id: string) => {
+    setGameId(id);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <h1>Multiplayer Number Game</h1>
+        {!gameId && <CreateGame onGameCreated={handleGameCreated} />}
+        {gameId && <GameBoard gameId={gameId} playerId={playerId} />}
+      </div>
   );
-}
+};
 
 export default App;
