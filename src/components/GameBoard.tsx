@@ -2,11 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {getGame, placeNumber} from '../services/GameService';
 
 interface GameBoardProps {
-    gameId: string;
-    playerId: string;
+    gameId: string
 }
 
-const GameBoard: React.FC<GameBoardProps> = ({gameId, playerId}) => {
+const GameBoard: React.FC<GameBoardProps> = ({gameId}) => {
     const [gameState, setGameState] = useState<any>(null);
     const [selectedNumber, setSelectedNumber] = useState<number | null>(null);
     const [row, setRow] = useState<number>(0);

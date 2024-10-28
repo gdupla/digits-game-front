@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
-import CreateGame from './components/CreateGame';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import CreateUser from './components/CreateUser';
+import WaitingRoom from './components/WaitingRoom';
+import GameSetup from './components/GameSetup';
 import GameBoard from './components/GameBoard';
 
 const App: React.FC = () => {
-  const [gameId, setGameId] = useState<string | null>(null);
-  const [playerId, setPlayerId] = useState<string>('');  // Assuming player 1 for now
+    const [gameId, setGameId] = useState<string | null>(null);
 
-  const handleGameCreated = (id: string) => {
-    setGameId(id);
-  };
-
-  return (
-      <div>
-        <h1>Multiplayer Number Game</h1>
-        {!gameId && <CreateGame onGameCreated={handleGameCreated} />}
-        {gameId && <GameBoard gameId={gameId} playerId={playerId} />}
-      </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/create-user" element={<CreateUser />} />
+                <Route path="/waiting-room" element={<WaitingRoom />} />
+                <Route path="/game-setup" element={<GameSetup />} />
+                <Route path="/game" element={
+                    gameId ? (
+                        <GameBoard gameId={gameId} />
+                    ) : (
+                        <div>Loading...</div>
+                    )
+                } />
+            </Routes>
+        </BrowserRouter>
+    );
 };
 
 export default App;
