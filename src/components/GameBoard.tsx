@@ -39,8 +39,6 @@ const GameBoard: React.FC<GameBoardProps> = ({gameId}) => {
         }
     };
 
-    if (!gameState) return <div>Loading game...</div>;
-
     const handleDrop = (playerId: string, row: number, col: number, event: React.DragEvent<HTMLDivElement>) => {
         event.preventDefault();
         const number = parseInt(event.dataTransfer.getData('text/plain'), 10);
@@ -52,6 +50,8 @@ const GameBoard: React.FC<GameBoardProps> = ({gameId}) => {
     };
 
     if (!gameState) return <div>Loading game...</div>;
+
+    if (gameState.status == "CREATED") return <div>Waiting for another player...</div>;
 
     return (
         <div>

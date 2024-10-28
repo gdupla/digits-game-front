@@ -2,10 +2,9 @@
 Game based on Digits party but for 1 vs 1
 
 ### TODO List
-1. Break the local game and allow just to play with your board and just see the other being updated.
-2. Add login.
+1. Fix the GameBoard component to fetch the gameState with Auth
+2. Break the local game and allow just to play with your board and just see the other being updated.
 3. Add colours and being more beautiful.
-4. Simplify the way to enter in a game.
 
 ## Available Scripts
 

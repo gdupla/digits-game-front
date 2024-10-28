@@ -1,10 +1,9 @@
-import axios from "axios";
-import {BASE_API} from "../config/config";
+import axiosInstance from "./axiosInstance";
 
 export const gameBoardApi = {
     placeNumber: async (gameId: string, playerId: string, row: number, col: number, number: number)=> {
-        return axios.post(
-            `${BASE_API}/${gameId}/placeNumber`,
+        return axiosInstance.post(
+            `/${gameId}/placeNumber`,
             {
                 playerId,
                 row,

@@ -6,9 +6,10 @@ const GameSetup: React.FC = () => {
     const [gameName, setGameName] = useState("");
     const navigate = useNavigate();
 
-    const startGame = () => {
-        const newGameId = gameApi.createGame(gameName); // Placeholder for game creation logic
-        navigate(`/game/${newGameId}`);
+    const createGame = async () => {
+        const newGame = await gameApi.createGame(gameName);
+        console.log(newGame.id);
+        navigate(`/game`, { state: { gameId: newGame.id } });
     };
 
     return (
@@ -20,7 +21,7 @@ const GameSetup: React.FC = () => {
                 onChange={(e) => setGameName(e.target.value)}
                 placeholder="Enter game name"
             />
-            <button onClick={startGame}>Start Game</button>
+            <button onClick={createGame}>Create Game</button>
         </div>
     );
 };
